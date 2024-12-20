@@ -1,0 +1,121 @@
+// variabls
+// -- colors
+$background: #ffffff;
+$back-gris: #f6f6f6;
+$back-location: #eaeaea;
+$back-footer: #353535;
+$text-secondry: #353535;
+$icons-colors: #9356dc;
+$icons-colors-secondry: #7e7e7e;
+
+*{
+    font-family: "Roboto", serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+// Header
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 200px;
+        padding: 15px;
+    }
+    .location{
+        width: 100%;
+        background-color: $back-location;
+        padding: 10px;
+        text-align: center;
+        color: $text-secondry;
+        i{
+            background-color: $back-location;
+        }
+    }
+}
+// main
+.hero{
+    background-color: $back-gris;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .hero-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            font-weight: 300;
+        }
+        &, h1, p{
+            margin: 15px 0;
+        }
+    }
+    button{
+        margin: 15px;
+        padding: 15px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(to bottom, #ff79da, $icons-colors);
+        color: #ffffff;
+    }
+}
+.fonctions{
+    display: flex;
+    justify-content: center;
+    .fonctionnement{
+        width: 75%;
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: 70px 70px;
+        margin: 20px;
+        align-items: center;
+        justify-content: center;
+        gap: 0 20px;
+        .fonctionne{
+            background-color: $back-gris;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 30px;
+            padding: 30px;
+            position: relative;
+            span{
+                padding: 2px 7px;
+                color: $background;
+                background-color: $icons-colors;
+                border-radius: 50%;
+                position: absolute;
+                left: -10px;
+            }
+            i{
+                color: $icons-colors-secondry;
+            }
+            .fa{
+                color: $icons-colors;
+            }
+        }
+    }
+}
+.restaurants{
+    padding: 20px 100px;
+    h2{
+       background: #00ff00;
+    }
+    .cards{
+        border: #002fff 1px solid;
+        display: grid;
+        grid-template-columns: 40% 40%;
+        grid-template-rows: 251px 251px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .card{
+            height: 250px;
+            img{
+                width: 100%;
+                height: 70%;
+            }
+        }
+    }
+}

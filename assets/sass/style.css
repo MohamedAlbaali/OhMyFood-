@@ -1,0 +1,113 @@
+* {
+  font-family: "Roboto", serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header img {
+  width: 200px;
+  padding: 15px;
+}
+.header .location {
+  width: 100%;
+  background-color: #eaeaea;
+  padding: 10px;
+  text-align: center;
+  color: #353535;
+}
+.header .location i {
+  background-color: #eaeaea;
+}
+
+.hero {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero .hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero .hero-text p {
+  font-weight: 300;
+}
+.hero .hero-text, .hero .hero-text h1, .hero .hero-text p {
+  margin: 15px 0;
+}
+.hero button {
+  margin: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to bottom, #ff79da, #9356dc);
+  color: #ffffff;
+}
+
+.fonctions {
+  display: flex;
+  justify-content: center;
+}
+.fonctions .fonctionnement {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 70px 70px;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 0 20px;
+}
+.fonctions .fonctionnement .fonctionne {
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  padding: 30px;
+  position: relative;
+}
+.fonctions .fonctionnement .fonctionne span {
+  padding: 2px 7px;
+  color: #ffffff;
+  background-color: #9356dc;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+}
+.fonctions .fonctionnement .fonctionne i {
+  color: #7e7e7e;
+}
+.fonctions .fonctionnement .fonctionne .fa {
+  color: #9356dc;
+}
+
+.restaurants {
+  padding: 20px 100px;
+}
+.restaurants h2 {
+  background: #00ff00;
+}
+.restaurants .cards {
+  border: #002fff 1px solid;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: 251px 251px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.restaurants .cards .card {
+  height: 250px;
+}
+.restaurants .cards .card img {
+  width: 100%;
+  height: 70%;
+}/*# sourceMappingURL=style.css.map */
