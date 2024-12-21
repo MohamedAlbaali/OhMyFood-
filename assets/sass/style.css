@@ -30,6 +30,35 @@ a {
   background-color: #eaeaea;
 }
 
+.like-checkbox {
+  display: none;
+}
+.like-checkbox:checked + label {
+  background: linear-gradient(to bottom, #9356dc, #ff79da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  content: "\f004";
+}
+
+button {
+  margin: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to bottom, #ff79da, #9356dc);
+  color: #ffffff;
+  width: 200px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+button:hover span {
+  transform: translateY(-30px);
+  transition: transform 0.3s ease;
+}
+
 .hero {
   background-color: #f6f6f6;
   display: flex;
@@ -46,14 +75,6 @@ a {
 }
 .hero .hero-text, .hero .hero-text h1, .hero .hero-text p {
   margin: 15px 0;
-}
-.hero button {
-  margin: 15px;
-  padding: 15px;
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(to bottom, #ff79da, #9356dc);
-  color: #ffffff;
 }
 
 .fonctions {
@@ -115,6 +136,7 @@ a {
   border-radius: 20px;
   height: 251px;
   position: relative;
+  color: #000000;
 }
 .restaurants-section .restaurants .card .new {
   color: #008766;
@@ -141,15 +163,107 @@ a {
 .restaurants-section .restaurants .card .contenu p {
   font-weight: 300;
 }
-.restaurants-section .restaurants .card .contenu .like-checkbox {
+
+.header {
+  position: relative;
+}
+.header a {
+  color: #000000;
+  position: absolute;
+  left: 12px;
+  top: 20px;
+}
+
+main {
+  position: relative;
+}
+main .bac_img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.plats {
+  position: relative;
+  width: 70%;
+  background-color: #f6f6f6;
+  margin: -40px auto 0;
+  padding: 30px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.plats .plat-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.plats .plat-title h2 {
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.options {
+  width: 70%;
+  margin: 10px auto;
+}
+.options .title {
+  margin: 0 15px;
+  border-bottom: 3px solid #99e2d0;
+  width: 30px;
+}
+.options .chec {
   display: none;
 }
-.restaurants-section .restaurants .card .contenu .like-checkbox:checked + label {
-  background: linear-gradient(to bottom, #9356dc, #ff79da);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 900;
-  content: "\f004";
+.options .option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 0 0 0 15px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  height: 75px;
+}
+.options .option p {
+  font-weight: 300;
+  margin: 5px 0;
+}
+.options .option .check-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.options .option .select i {
+  color: #ffffff;
+}
+
+.option:hover .check-box, .chec:checked + label .check-box {
+  width: 15%;
+  height: 100%;
+  animation: chec 0.3s linear;
+  transform-origin: right;
+}
+.option:hover .check-box .select, .chec:checked + label .check-box .select {
+  background-color: #99e2d0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+}
+@keyframes chec {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 .foot {

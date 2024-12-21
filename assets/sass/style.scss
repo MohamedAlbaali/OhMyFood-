@@ -38,6 +38,37 @@ a{
         }
     }
 }
+// liks
+.like-checkbox{
+    display: none;
+    &:checked + label{
+        background: linear-gradient(to bottom, $icons-colors, #ff79da);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        font-weight: 900; 
+        content: "\f004";
+    }
+}
+// buttons
+button{
+    margin: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, #ff79da, $icons-colors);
+    color: #ffffff;
+    width: 200px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    &:hover {
+        transform: scale(1.05); 
+    }
+    &:hover span {
+        transform: translateY(-30px); 
+        transition: transform 0.3s ease;
+    }
+}
+
+// Home Page
 // main
 .hero{
     background-color: $back-gris;
@@ -54,14 +85,6 @@ a{
         &, h1, p{
             margin: 15px 0;
         }
-    }
-    button{
-        margin: 15px;
-        padding: 15px;
-        border: none;
-        border-radius: 30px;
-        background: linear-gradient(to bottom, #ff79da, $icons-colors);
-        color: #ffffff;
     }
 }
 .fonctions{
@@ -121,6 +144,7 @@ a{
             border-radius: 20px;
             height: 251px;
             position: relative;
+            color: #000000;
             .new{
                 color: #008766;
                 background-color: #99e2d0;
@@ -144,20 +168,115 @@ a{
                 p{
                     font-weight: 300;
                 }
-                .like-checkbox{
-                    display: none;
-                    &:checked + label{
-                        background: linear-gradient(to bottom, $icons-colors, #ff79da);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                        font-weight: 900; 
-                        content: "\f004";
-                    }
-                }
             }
         }
     }
 }
+// Resturants Pages
+.header{
+    position: relative;
+    a{
+        color: #000000;
+        position: absolute;
+        left: 12px;
+        top: 20px;
+    }
+}
+main{
+    position: relative;
+    .bac_img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+}
+.plats{
+    position: relative;
+    // top: -70px;
+    width: 70%;
+    background-color: $back-gris;
+    margin: -40px auto 0;
+    padding: 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .plat-title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        h2{
+            font-family: "Shrikhand", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
+}
+.options{
+    width: 70%;
+    margin: 10px auto;
+    .title{
+        margin: 0 15px;
+        border-bottom: 3px solid #99e2d0;
+        width: 30px;
+    }
+    .chec{
+        display: none;
+    }
+    .option{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px;
+        padding: 0 0 0 15px;
+        border-radius: 20px;
+        background-color: $background;
+        height: 75px;
+        p{
+            font-weight: 300;
+            margin: 5px 0;
+        }
+        .check-box{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .select{
+            i{
+                color: $background;
+            }
+        }
+    }
+}
+
+.option:hover, .chec:checked + label{
+    .check-box{
+        width: 15%;
+        height: 100%;
+        animation: chec 0.3s linear;
+        transform-origin: right;
+        .select{
+            background-color: #99e2d0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 20px 20px 0;
+        }
+        @keyframes chec {
+            0% {
+                transform: scaleX(0); 
+            }
+            100% {
+                transform: scaleX(1);
+            }
+    }
+}
+}
+
+
 .foot{
     background-color: $back-footer;
     display: flex;
