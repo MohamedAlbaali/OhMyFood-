@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   font-family: "Roboto", serif;
   box-sizing: border-box;
@@ -50,6 +51,7 @@ button {
   color: #ffffff;
   width: 200px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 5px 10px #f6f6f6;
 }
 button:hover {
   transform: scale(1.05);
@@ -84,12 +86,15 @@ button:hover span {
 .fonctions .fonctionnement {
   width: 75%;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-template-rows: 70px 70px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
   margin: 20px;
   align-items: center;
   justify-content: center;
-  gap: 0 20px;
+  gap: 20px;
+}
+.fonctions .fonctionnement h2 {
+  grid-column: span 3;
 }
 .fonctions .fonctionnement .fonctionne {
   background-color: #f6f6f6;
@@ -242,30 +247,45 @@ main .bac_img {
   color: #ffffff;
 }
 
-.option:hover .check-box, .chec:checked + label .check-box {
-  width: 15%;
-  height: 100%;
-  animation: chec 0.3s linear;
-  transform-origin: right;
-}
-.option:hover .check-box .select, .chec:checked + label .check-box .select {
-  background-color: #99e2d0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 20px 20px 0;
-}
-@keyframes chec {
-  0% {
-    transform: scaleX(0);
+@media (min-width: 550px) {
+  .option:hover .option-text, .chec:checked + label .option-text {
+    animation: shrinkAndGrow 0.4s linear;
   }
-  100% {
-    transform: scaleX(1);
+  @keyframes shrinkAndGrow {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .option:hover .check-box, .chec:checked + label .check-box {
+    width: 15%;
+    height: 100%;
+    animation: chec 0.3s linear;
+    transform-origin: right;
+  }
+  .option:hover .check-box .select, .chec:checked + label .check-box .select {
+    background-color: #99e2d0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+  }
+  @keyframes chec {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
   }
 }
-
 .foot {
   background-color: #353535;
   display: flex;
@@ -286,4 +306,110 @@ main .bac_img {
 }
 .foot img {
   width: 150px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .hero {
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
+  .fonctions {
+    display: block;
+  }
+  .fonctions .fonctionnement {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    width: 95%;
+    margin: 20px 1fr 20px 1.2fr;
+  }
+  .fonctions .fonctionnement .fonctionne {
+    width: 95%;
+  }
+  .restaurants-section .restaurants {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    align-items: flex-start;
+  }
+  .restaurants-section .restaurants .card {
+    width: 100%;
+  }
+  .foot .linksfoot ul, .foot .linksfoot, .foot {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .plats {
+    width: 100%;
+  }
+  .plats .options {
+    width: 100%;
+  }
+  .plats .options .option {
+    width: 100%;
+    gap: 10%;
+  }
+  .plats .options .option .option-text {
+    max-width: 75%;
+    min-width: 0;
+    flex: 1; /* النص يأخذ المتبقي من العرض */
+  }
+  .plats .options .option .option-text h3 {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .plats .options .option .option-text p {
+    font-size: 12px;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .chec:checked + label .option-text {
+    animation: shrinkAndGrow 0.4s linear;
+  }
+  @keyframes shrinkAndGrow {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .chec:checked + label .check-box {
+    width: 25%;
+    height: 100%;
+    animation: chec 0.3s linear;
+    transform-origin: right;
+  }
+  .chec:checked + label .check-box .select {
+    background-color: #99e2d0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+  }
+  @keyframes chec {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  .foot {
+    align-items: start;
+    height: auto;
+    padding: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */

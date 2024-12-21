@@ -59,6 +59,8 @@ button{
     color: #ffffff;
     width: 200px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 5px 10px $back-gris;
+
     &:hover {
         transform: scale(1.05); 
     }
@@ -93,12 +95,15 @@ button{
     .fonctionnement{
         width: 75%;
         display: grid;
-        grid-template-columns: 30% 30% 30%;
-        grid-template-rows: 70px 70px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
         margin: 20px;
         align-items: center;
         justify-content: center;
-        gap: 0 20px;
+        gap:20px;
+        h2{
+            grid-column: span 3
+        }
         .fonctionne{
             background-color: $back-gris;
             display: flex;
@@ -250,30 +255,46 @@ main{
     }
 }
 
-.option:hover, .chec:checked + label{
-    .check-box{
-        width: 15%;
-        height: 100%;
-        animation: chec 0.3s linear;
-        transform-origin: right;
-        .select{
-            background-color: #99e2d0;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0 20px 20px 0;
+@media (min-width: 550px) {
+    .option:hover, .chec:checked + label{
+        .option-text{
+            animation: shrinkAndGrow 0.4s linear;
+            @keyframes shrinkAndGrow {
+                0%{
+                    transform: scale(1);
+                }
+                50%{
+                    transform: scale(0.9);
+                }
+                100%{
+                    transform: scale(1);
+                }
+            }
         }
-        @keyframes chec {
-            0% {
-                transform: scaleX(0); 
+        .check-box{
+            width: 15%;
+            height: 100%;
+            animation: chec 0.3s linear;
+            transform-origin: right;
+            .select{
+                background-color: #99e2d0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0 20px 20px 0;
             }
-            100% {
-                transform: scaleX(1);
+            @keyframes chec {
+                0% {
+                    transform: scaleX(0); 
+                }
+                100% {
+                    transform: scaleX(1);
+                }
             }
+        }
     }
-}
 }
 
 
@@ -299,4 +320,126 @@ main{
         width: 150px;
     }
     
+}
+
+// mobils
+@media(min-width: 320px) and (max-width: 767px){
+    //Home page
+    .hero{
+        text-align: center;
+        h1{
+            font-size: 24px;
+        }
+        
+    }
+    .fonctions {
+        display: block;
+        .fonctionnement {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: flex-start;
+          width: 95%;
+          margin: 20px 1fr 20px 1.2fr;
+          .fonctionne{
+            width: 95%;
+          }
+        }
+      }
+      .restaurants-section{
+        .restaurants{
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+            align-items: flex-start;
+            .card{
+                width: 100%;
+            }
+        }
+      }
+    //resturants pages
+    %fg{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .plats{
+        width: 100%;
+        .options{
+            width: 100%;
+            .option{
+                width: 100%;
+                gap: 10%;
+                & .option-text{
+                    max-width: 75%;
+                    min-width: 0;
+                    flex: 1; /* النص يأخذ المتبقي من العرض */
+                    h3{
+                        font-size: 14px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    p{
+                        font-size: 12px;
+                        margin-top: 5px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+    .chec:checked + label{
+        .option-text{
+            animation: shrinkAndGrow 0.4s linear;
+            @keyframes shrinkAndGrow {
+                0%{
+                    transform: scale(1);
+                }
+                50%{
+                    transform: scale(0.9);
+                }
+                100%{
+                    transform: scale(1);
+                }
+            }
+        }
+        .check-box{
+            width: 25%;
+            height: 100%;
+            animation: chec 0.3s linear;
+            transform-origin: right;
+            .select{
+                background-color: #99e2d0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0 20px 20px 0;
+            }
+            @keyframes chec {
+                0% {
+                    transform: scaleX(0); 
+                }
+                100% {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+    //footer
+    .foot{
+        @extend %fg;
+        align-items: start;
+        height: auto;
+        padding: 20px;
+        .linksfoot{
+            @extend %fg;
+            ul{
+                @extend %fg;
+            }
+        }
+    }
 }
