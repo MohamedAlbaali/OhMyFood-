@@ -11,6 +11,64 @@ a {
   color: #ffffff;
 }
 
+.loader {
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  animation: loader 2s 2s ease-out both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader__container {
+  display: flex;
+  flex-direction: row;
+}
+.loader__circle {
+  background-color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  margin: 10px;
+  animation: bounce 1s ease-in-out;
+}
+.loader__circle:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loader__circle:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loader__circle:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes loader {
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(15px);
+    background-color: #9356dc;
+  }
+  70% {
+    transform: translateY(-10px);
+    background-color: #7e7e7e;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .header {
   display: flex;
   flex-direction: column;
@@ -47,14 +105,17 @@ button {
   padding: 15px;
   border: none;
   border-radius: 30px;
-  background: linear-gradient(to bottom, #ff79da, #9356dc);
   color: #ffffff;
   width: 200px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0px 5px 10px #f6f6f6;
+  background-color: rgb(104, 104, 104);
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9019607843), rgba(255, 121, 218, 0.9019607843));
+  cursor: pointer;
+  transition-duration: 0.25s;
+  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
 }
 button:hover {
-  transform: scale(1.05);
+  background-color: white;
+  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
 }
 button:hover span {
   transform: translateY(-30px);
@@ -76,7 +137,7 @@ button:hover span {
   font-weight: 300;
 }
 .hero .hero-text, .hero .hero-text h1, .hero .hero-text p {
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 .fonctions {
@@ -158,6 +219,8 @@ button:hover span {
   border-radius: 20px 20px 0 0;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .restaurants-section .restaurants .card .contenu {
   display: flex;
@@ -217,6 +280,7 @@ main .bac_img {
   margin: 10px auto;
 }
 .options .title {
+  text-transform: uppercase;
   margin: 0 15px;
   border-bottom: 3px solid #99e2d0;
   width: 30px;
@@ -233,6 +297,7 @@ main .bac_img {
   border-radius: 20px;
   background-color: #ffffff;
   height: 75px;
+  animation: menu-list 1s ease both;
 }
 .options .option p {
   font-weight: 300;
@@ -247,6 +312,56 @@ main .bac_img {
   color: #ffffff;
 }
 
+.option.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.option.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.option.delay-3 {
+  animation-delay: 0.9s;
+}
+
+.option.delay-4 {
+  animation-delay: 1.2s;
+}
+
+.option.delay-5 {
+  animation-delay: 1.5s;
+}
+
+.option.delay-6 {
+  animation-delay: 1.8s;
+}
+
+.option.delay-7 {
+  animation-delay: 2.1s;
+}
+
+.option.delay-8 {
+  animation-delay: 2.4s;
+}
+
+.option.delay-9 {
+  animation-delay: 2.7s;
+}
+
+.option.delay-10 {
+  animation-delay: 3s;
+}
+
+@keyframes menu-list {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @media (min-width: 550px) {
   .option:hover .option-text, .chec:checked + label .option-text {
     animation: shrinkAndGrow 0.4s linear;
@@ -309,6 +424,13 @@ main .bac_img {
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+  .header {
+    z-index: 1;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2509803922);
+  }
+  .header .location {
+    box-shadow: 0px -3px 15px rgba(0, 0, 0, 0.2509803922);
+  }
   .hero {
     text-align: center;
   }
@@ -329,10 +451,14 @@ main .bac_img {
   .fonctions .fonctionnement .fonctionne {
     width: 95%;
   }
+  .restaurants-section {
+    padding: 0 0 30px;
+  }
   .restaurants-section .restaurants {
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0;
+    gap: 10px;
     align-items: flex-start;
   }
   .restaurants-section .restaurants .card {
@@ -344,6 +470,7 @@ main .bac_img {
   }
   .plats {
     width: 100%;
+    padding: 20px 20px 0 0;
   }
   .plats .options {
     width: 100%;
@@ -351,6 +478,7 @@ main .bac_img {
   .plats .options .option {
     width: 100%;
     gap: 10%;
+    margin: 10px;
   }
   .plats .options .option .option-text {
     max-width: 75%;

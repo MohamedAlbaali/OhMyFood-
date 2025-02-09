@@ -7,7 +7,7 @@ $back-footer: #353535;
 $text-secondry: #353535;
 $icons-colors: #9356dc;
 $icons-colors-secondry: #7e7e7e;
-
+@import "mixins";
 *{
     font-family: "Roboto", serif;
     box-sizing: border-box;
@@ -17,6 +17,66 @@ $icons-colors-secondry: #7e7e7e;
 a{
     text-decoration: none;
     color: #ffffff;
+}
+.loader {
+    background: rgba($background, 0.95);
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    animation: loader 2s 2s ease-out both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__container {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    &__circle {
+        background-color: white;
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+        margin: 10px;
+        animation: bounce 1s ease-in-out;
+        &:nth-child(2) {
+            animation-delay: .2s;
+        }
+        &:nth-child(3) {
+            animation-delay: .4s;
+        }
+        &:nth-child(4) {
+            animation-delay: .6s;
+        }
+    }
+}
+@keyframes loader {
+    85% {
+        opacity: 0.80;
+    }
+    100% {
+        opacity: 0;
+        z-index: -10;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(15px);
+        background-color: $icons-colors;
+    }
+    70% {
+        transform: translateY(-10px);
+        background-color: $icons-colors-secondry;
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 // Header
 .header{
@@ -55,14 +115,18 @@ button{
     padding: 15px;
     border: none;
     border-radius: 30px;
-    background: linear-gradient(to bottom, #ff79da, $icons-colors);
     color: #ffffff;
     width: 200px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    box-shadow: 0px 5px 10px $back-gris;
-
+    background-color: rgb(104, 104, 104);
+    background-image: linear-gradient(0deg, #9356dce6, #ff79dae6);
+    cursor: pointer;
+    transition-duration: 0.25s;
+    box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
+  
     &:hover {
-        transform: scale(1.05); 
+        background-color: white;
+        box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.50);
+      
     }
     &:hover span {
         transform: translateY(-30px); 
@@ -85,7 +149,7 @@ button{
             font-weight: 300;
         }
         &, h1, p{
-            margin: 15px 0;
+            margin: 10px 0;
         }
     }
 }
@@ -164,6 +228,7 @@ button{
                 height: 70%;
                 border-radius: 20px 20px 0 0;
                 object-fit: cover;
+                object-position: center;
             }
             .contenu{
                 display: flex;
@@ -222,6 +287,7 @@ main{
     width: 70%;
     margin: 10px auto;
     .title{
+        text-transform: uppercase;
         margin: 0 15px;
         border-bottom: 3px solid #99e2d0;
         width: 30px;
@@ -238,6 +304,7 @@ main{
         border-radius: 20px;
         background-color: $background;
         height: 75px;
+        animation: menu-list 1s ease both;
         p{
             font-weight: 300;
             margin: 5px 0;
@@ -254,6 +321,18 @@ main{
         }
     }
 }
+@include list-delay("option");
+
+@keyframes menu-list {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+  }
 
 @media (min-width: 550px) {
     .option:hover, .chec:checked + label{
@@ -325,6 +404,13 @@ main{
 // mobils
 @media(min-width: 320px) and (max-width: 767px){
     //Home page
+    .header{
+        z-index: 1;
+        box-shadow: 0px 3px 15px #00000040;
+        .location{
+            box-shadow: 0px -3px 15px #00000040;
+        }
+    }
     .hero{
         text-align: center;
         h1{
@@ -347,10 +433,12 @@ main{
         }
       }
       .restaurants-section{
+        padding: 0 0 30px;
         .restaurants{
             display: flex;
             flex-direction: column;
-            margin: 0 20px;
+            margin: 0;
+            gap: 10px;
             align-items: flex-start;
             .card{
                 width: 100%;
@@ -364,11 +452,13 @@ main{
     }
     .plats{
         width: 100%;
+        padding: 20px 20px 0 0;
         .options{
             width: 100%;
             .option{
                 width: 100%;
                 gap: 10%;
+                margin: 10px;
                 & .option-text{
                     max-width: 75%;
                     min-width: 0;
