@@ -1,0 +1,66 @@
+@keyframes loader {
+    85% {
+        opacity: 0.80;
+    }
+    100% {
+        opacity: 0;
+        z-index: -10;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(15px);
+        background-color: $icons-colors;
+    }
+    70% {
+        transform: translateY(-10px);
+        background-color: $icons-colors-secondry;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fillHeart {
+    0% {
+        clip-path: circle(0% at center);
+    }
+    100% {
+        clip-path: circle(100% at center);
+    }
+}
+
+@keyframes menu-list {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes chec {
+    0% {
+        transform: scaleX(0); 
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+@keyframes shrinkAndGrow {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.9);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,79 @@
+.header{
+    position: relative;
+    a{
+        color: #000000;
+        position: absolute;
+        left: 12px;
+        top: 20px;
+    }
+}
+main{
+    position: relative;
+    .bac_img{
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+}
+.plats{
+    position: relative;
+    // top: -70px;
+    width: 70%;
+    background-color: $back-gris;
+    margin: -40px auto 0;
+    padding: 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .plat-title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        h2{
+            font-family: "Shrikhand", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
+}
+.options{
+    width: 70%;
+    margin: 10px auto;
+    .title{
+        text-transform: uppercase;
+        margin: 0 15px;
+        border-bottom: 3px solid #99e2d0;
+        width: 30px;
+    }
+    .chec{
+        display: none;
+    }
+    .option{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px;
+        padding: 0 0 0 15px;
+        border-radius: 20px;
+        background-color: $background;
+        height: 75px;
+        animation: menu-list 1s ease both;
+        p{
+            font-weight: 300;
+            margin: 5px 0;
+        }
+        .check-box{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .select{
+            i{
+                color: $background;
+            }
+        }
+    }
+}
+@include list-delay("option");

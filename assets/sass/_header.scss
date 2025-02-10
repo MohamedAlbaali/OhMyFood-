@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 200px;
+        padding: 15px;
+    }
+    .location{
+        width: 100%;
+        background-color: $back-location;
+        padding: 10px;
+        text-align: center;
+        color: $text-secondry;
+        i{
+            background-color: $back-location;
+        }
+    }
+}

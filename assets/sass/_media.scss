@@ -1,0 +1,174 @@
+@media (min-width: 1025px) {
+    .option:hover, .chec:checked + label{
+        .option-text{
+            animation: shrinkAndGrow 0.4s linear;
+        }
+        .check-box{
+            width: 15%;
+            height: 100%;
+            animation: chec 0.3s linear;
+            transform-origin: right;
+            .select{
+                background-color: #99e2d0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0 20px 20px 0;
+            }
+        }
+    }
+}
+
+@media (min-width: 767.1px) and (max-width: 1024.9px) {
+    .plats{
+        width: 80%;
+    }
+    .options{
+        width: 75%;
+    }
+    .chec:checked + label{
+        .option-text{
+            animation: shrinkAndGrow 0.4s linear;
+            max-width: 60%;
+            min-width: 0;
+            flex: 1; 
+            h3, p{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        .check-box{
+            width: 30%;
+            height: 100%;
+            animation: chec 0.3s linear;
+            transform-origin: right;
+            .select{
+                background-color: #99e2d0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0 20px 20px 0;
+            }
+        }
+    }
+}
+
+
+// mobils
+@media(min-width: 320px) and (max-width: 767px){
+    //Home page
+    .header{
+        z-index: 1;
+        box-shadow: 0px 3px 15px #00000040;
+        .location{
+            box-shadow: 0px -3px 15px #00000040;
+        }
+    }
+    .hero{
+        text-align: center;
+        h1{
+            font-size: 24px;
+        }
+        
+    }
+    .fonctions {
+        display: block;
+        .fonctionnement {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: flex-start;
+          width: 95%;
+          margin: 20px;
+          .fonctionne{
+            width: 95%;
+          }
+        }
+      }
+      .restaurants-section{
+        padding: 0 0 30px;
+        .restaurants{
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            gap: 10px;
+            align-items: flex-start;
+            .ticket{
+                width: 100%;
+            }
+        }
+      }
+    //resturants pages
+    %fg{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .plats{
+        width: 100%;
+        padding: 20px 20px 0 0;
+        .options{
+            width: 100%;
+            .option{
+                width: 100%;
+                gap: 10%;
+                margin: 10px;
+                & .option-text{
+                    max-width: 75%;
+                    min-width: 0;
+                    flex: 1; 
+                    h3{
+                        font-size: 14px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    p{
+                        font-size: 12px;
+                        margin-top: 5px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+    .chec:checked + label{
+        .option-text{
+            animation: shrinkAndGrow 0.4s linear;
+        }
+        .check-box{
+            width: 25%;
+            height: 100%;
+            animation: chec 0.3s linear;
+            transform-origin: right;
+            .select{
+                background-color: #99e2d0;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0 20px 20px 0;
+            }
+        }
+    }
+    //footer
+    .foot{
+        @extend %fg;
+        align-items: start;
+        height: auto;
+        padding: 20px;
+        .linksfoot{
+            @extend %fg;
+            ul{
+                @extend %fg;
+            }
+        }
+    }
+}

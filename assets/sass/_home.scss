@@ -1,0 +1,109 @@
+.hero{
+    background-color: $back-gris;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .hero-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            font-weight: 300;
+        }
+        &, h1, p{
+            margin: 10px 0;
+        }
+    }
+}
+.fonctions{
+    display: flex;
+    justify-content: center;
+    .fonctionnement{
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        margin: 20px;
+        align-items: center;
+        justify-content: center;
+        gap:20px;
+        h2{
+            grid-column: span 3
+        }
+        .fonctionne{
+            background-color: $back-gris;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 30px;
+            padding: 30px;
+            position: relative;
+            span{
+                padding: 2px 7px;
+                color: $background;
+                background-color: $icons-colors;
+                border-radius: 50%;
+                position: absolute;
+                left: -10px;
+            }
+            i{
+                color: $icons-colors-secondry;
+            }
+            .fa{
+                color: $icons-colors;
+            }
+        }
+    }
+}
+.restaurants-section{
+    background-color: $back-gris;
+    .restaurants{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 120px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        gap: 50px 100px;
+        row-gap: 30px;
+        h2{
+            grid-column: span 2;
+        }
+        .ticket{
+            background-color: $background;
+            border-radius: 20px;
+            height: 251px;
+            position: relative;
+            .card{
+                color: #000000;
+                .new{
+                    color: #008766;
+                    background-color: #99e2d0;
+                    padding: 5px;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: 10px;
+                    right: 16px;
+                }
+                img{
+                    width: 100%;
+                    height: 70%;
+                    border-radius: 20px 20px 0 0;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                .contenu{
+                    padding: 10px;
+                    p{
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+        .like-container{
+            position: absolute;
+            right: 20px;
+            bottom: 30px;
+        }
+    }
+}
