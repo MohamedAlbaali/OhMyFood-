@@ -56,6 +56,9 @@
             }
         }
     }
+    .chec:not(:checked) + label .check-box {
+        animation: chec-reverse 0.3s linear ;
+    }
 }
 
 
@@ -157,6 +160,9 @@
                 border-radius: 0 20px 20px 0;
             }
         }
+    }
+    .chec:not(:checked) + label .check-box {
+        animation: chec-reverse 0.3s linear ;
     }
     //footer
     .foot{

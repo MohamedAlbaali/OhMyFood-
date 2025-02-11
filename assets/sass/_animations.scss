@@ -25,14 +25,6 @@
     }
 }
 
-@keyframes fillHeart {
-    0% {
-        clip-path: circle(0% at center);
-    }
-    100% {
-        clip-path: circle(100% at center);
-    }
-}
 
 @keyframes menu-list {
     0% {
@@ -51,6 +43,14 @@
     }
     100% {
         transform: scaleX(1);
+    }
+}
+@keyframes chec-reverse {
+    0% {
+        width: 25%;
+    }
+    100% {
+        width: 50px;
     }
 }
 @keyframes shrinkAndGrow {

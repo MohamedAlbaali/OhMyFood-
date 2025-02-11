@@ -8,11 +8,9 @@ a{
     text-decoration: none;
     color: $background;
 }
-
 .like-checkbox {
     display: none;
-
-    &:checked + label {
+    & + label {
         position: relative;
         font-weight: 400;
         &::after {
@@ -27,8 +25,17 @@ a{
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             clip-path: circle(0% at center);
-            animation: fillHeart 0.8s ease-in-out forwards;
+            opacity: 0;
+            transition: clip-path 1s ease-in-out, opacity 0.3s ease-in-out;
         }
+    }
+    &:checked + label::after {
+        clip-path: circle(100% at center);
+        opacity: 1;
+    }
+    &:not(:checked) + label::after {
+        clip-path: circle(0% at center);
+        opacity: 0;
     }
 }
 
@@ -40,6 +47,7 @@ a{
     align-items: center;
     height: 115px;
     gap: 50px;
+    padding: 20px;
     .linksfoot{
         display: flex;
         gap: 40px;
@@ -48,10 +56,9 @@ a{
             display: flex;
             gap: 20px;
         }
-    }
-    
+    }  
     img{
         width: 150px;
-    }
-    
+    }  
 }
+

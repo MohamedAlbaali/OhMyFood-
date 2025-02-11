@@ -13,11 +13,11 @@ a {
 .like-checkbox {
   display: none;
 }
-.like-checkbox:checked + label {
+.like-checkbox + label {
   position: relative;
   font-weight: 400;
 }
-.like-checkbox:checked + label::after {
+.like-checkbox + label::after {
   content: "\f004";
   font-weight: 900;
   position: absolute;
@@ -30,7 +30,20 @@ a {
   -webkit-text-fill-color: transparent;
   -webkit-clip-path: circle(0% at center);
           clip-path: circle(0% at center);
-  animation: fillHeart 0.8s ease-in-out forwards;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, -webkit-clip-path 1s ease-in-out;
+  transition: clip-path 1s ease-in-out, opacity 0.3s ease-in-out;
+  transition: clip-path 1s ease-in-out, opacity 0.3s ease-in-out, -webkit-clip-path 1s ease-in-out;
+}
+.like-checkbox:checked + label::after {
+  -webkit-clip-path: circle(100% at center);
+          clip-path: circle(100% at center);
+  opacity: 1;
+}
+.like-checkbox:not(:checked) + label::after {
+  -webkit-clip-path: circle(0% at center);
+          clip-path: circle(0% at center);
+  opacity: 0;
 }
 
 .foot {
@@ -41,6 +54,7 @@ a {
   align-items: center;
   height: 115px;
   gap: 50px;
+  padding: 20px;
 }
 .foot .linksfoot {
   display: flex;
@@ -80,16 +94,6 @@ a {
     transform: translateY(0);
   }
 }
-@keyframes fillHeart {
-  0% {
-    -webkit-clip-path: circle(0% at center);
-            clip-path: circle(0% at center);
-  }
-  100% {
-    -webkit-clip-path: circle(100% at center);
-            clip-path: circle(100% at center);
-  }
-}
 @keyframes menu-list {
   0% {
     opacity: 0;
@@ -106,6 +110,14 @@ a {
   }
   100% {
     transform: scaleX(1);
+  }
+}
+@keyframes chec-reverse {
+  0% {
+    width: 25%;
+  }
+  100% {
+    width: 50px;
   }
 }
 @keyframes shrinkAndGrow {
@@ -345,7 +357,7 @@ main .bac_img {
   justify-content: center;
   gap: 30px;
 }
-.plats .plat-title h2 {
+.plats .plat-title h1 {
   font-family: "Shrikhand", serif;
   font-weight: 400;
   font-style: italic;
@@ -360,6 +372,8 @@ main .bac_img {
   margin: 0 15px;
   border-bottom: 3px solid #99e2d0;
   width: 30px;
+  font-size: 16px;
+  font-weight: 300;
 }
 .options .chec {
   display: none;
@@ -481,6 +495,9 @@ main .bac_img {
     justify-content: center;
     border-radius: 0 20px 20px 0;
   }
+  .chec:not(:checked) + label .check-box {
+    animation: chec-reverse 0.3s linear;
+  }
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .header {
@@ -574,6 +591,9 @@ main .bac_img {
     align-items: center;
     justify-content: center;
     border-radius: 0 20px 20px 0;
+  }
+  .chec:not(:checked) + label .check-box {
+    animation: chec-reverse 0.3s linear;
   }
   .foot {
     align-items: start;
