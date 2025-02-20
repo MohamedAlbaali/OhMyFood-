@@ -600,4 +600,7 @@ main .bac_img {
     height: auto;
     padding: 20px;
   }
+  .foot .linksfoot ul i {
+    width: 25px;
+  }
 }/*# sourceMappingURL=style.css.map */

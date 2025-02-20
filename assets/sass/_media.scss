@@ -174,6 +174,9 @@
             @extend %fg;
             ul{
                 @extend %fg;
+                i{
+                    width: 25px;
+                }
             }
         }
     }
